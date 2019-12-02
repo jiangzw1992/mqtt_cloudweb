@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lelian.mqtt.mapper.DeviceMapper">
+
+  <insert id="insert" parameterType="java.util.Map">
+    INSERT INTO "public"."device" ( id, serialnumber, name, modelid, isactive )
+        VALUES
+	( #{deviceNumber,jdbcType=INTEGER}, #{serialnumber,jdbcType=INTEGER},#{name,jdbcType=VARCHAR}, #{modelid,jdbcType=INTEGER}, #{isactive,jdbcType=INTEGER});
+  </insert>
+
+  <select id="checkConflict" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select
+            count(1)
+        from
+            "public"."device"
+        where
+            1 = 1
+            and id = #{deviceNumber,jdbcType=INTEGER}
+  </select>
+
+    <update id="updateByKey" parameterType="java.util.Map">
+        update "public"."device"
+        set
+            serialnumber = #{serialnumber,jdbcType=INTEGER},
+            name = #{name,jdbcType=VARCHAR},
+            modelid = #{modelid,jdbcType=INTEGER},
+            isactive = #{isactive,jdbcType=INTEGER}
+        where
+            id = #{deviceNumber,jdbcType=INTEGER}
+    </update>
+
+</mapper>
