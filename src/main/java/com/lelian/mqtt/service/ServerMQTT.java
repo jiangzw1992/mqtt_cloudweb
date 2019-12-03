@@ -5,6 +5,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.io.UnsupportedEncodingException;
 
+@Deprecated
 public class ServerMQTT {
 
     // tcp://MQTT安装的服务器地址:MQTT定义的端口号

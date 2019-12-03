@@ -44,7 +44,7 @@ public class SLRemoteService {
     /**
      * MQTT 相关参数
      */
-    private static  final String Broker = "tcp://127.0.0.1:1883";
+    private static  final String Broker = "tcp://112.126.98.10:1883";
     private static  final int Qos = 2;
     private static  final boolean isRetained = false;
     private static  final boolean isCleanSession = true;
